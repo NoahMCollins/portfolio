@@ -1,0 +1,71 @@
+@(registerForm: Form[Application.Register])
+<html>
+<head>
+  <title>USGS Registration</title>
+  <link rel="shortcut icon" type="image/png" href='@routes.Assets.at("images/favicon.png")'>
+  <link rel="stylesheet" type="text/css" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" media="screen" href='@routes.Assets.at("styles/main.css")'>
+</head>
+<body>
+
+<div class="container col-sm-6 col-sm-offset-3">
+  @helper.form(routes.Application.postRegister) {
+    <h1>Register</h1>
+
+    @if(registerForm.hasGlobalErrors) {
+      <p class="text-danger">
+        @registerForm.globalError.message
+      </p>
+    }
+
+    <div class="form-group">
+      <label>Email address</label>
+      <input type="email"
+             class="form-control"
+             name="email"
+             placeholder="Email"
+             value='@registerForm("email").value'
+             required>
+    </div>
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text"
+             class="form-control"
+             name="first_name"
+             placeholder="First Name"
+             value='@registerForm("first_name").value'
+             required>
+    </div>
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text"
+             class="form-control"
+             name="last_name"
+             placeholder="Last Name"
+             value='@registerForm("last_name").value'
+             required>
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password"
+             class="form-control"
+             name="password"
+             placeholder="Password"
+             required>
+    </div>
+    <div class="form-group">
+      <label>Confirm Password</label>
+      <input type="password"
+             class="form-control"
+             name="confirm"
+             placeholder="Confirm Password"
+             required>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Register</button>
+  }
+  <a href="login">Have an Existing Account?</a>
+</div>
+
+</body>
+</html>

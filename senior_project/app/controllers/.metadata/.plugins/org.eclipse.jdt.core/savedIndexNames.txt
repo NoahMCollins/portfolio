@@ -1,0 +1,1 @@
+INDEX VERSION 1.126+C:\Users\noah\workspace\usgs\app\controllers\.metadata\.plugins\org.eclipse.jdt.core

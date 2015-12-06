@@ -1,0 +1,25 @@
+<div ng-include="'assets/views/partials/header.html'"></div>
+<div ng-include="'assets/views/partials/messages.html'"></div>
+
+<h2 class="page-header">
+  Account
+</h2>
+<form ng-submit="ctrl.putUser()">
+  <div class="form-group">
+    <label for="userEmail">Email address</label>
+    <input type="email"
+           class="form-control"
+           id="userEmail"
+           ng-model="ctrl.user.email"
+           placeholder="Enter email">
+  </div>
+  <div class="form-group">
+    <label for="userPassword">Password</label>
+    <input type="password"
+           class="form-control"
+           id="userPassword"
+           ng-model="ctrl.user.password"
+           placeholder="Password">
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>

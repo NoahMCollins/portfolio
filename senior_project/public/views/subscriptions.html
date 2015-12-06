@@ -1,0 +1,38 @@
+<div ng-include="'assets/views/partials/header.html'"></div>
+<div ng-include="'assets/views/partials/messages.html'"></div>
+
+<h2 class="page-header">
+  Subscriptions
+</h2>
+
+<select class="form-control"
+        ng-model="ctrl.currentAlarm"
+        ng-options="alarm.alarmName for alarm in ctrl.alarms | filter : ctrl.subscribed">
+  <option value="">Select Alarm</option>
+</select>
+<br/>
+
+<button ng-click="ctrl.subscribe(ctrl.currentAlarm)">
+  Subscribe
+</button>
+
+<hr/>
+
+<label ng-hide="ctrl.subscriptions.length">
+  You currently have no subscriptions
+</label>
+<div ng-show="ctrl.subscriptions.length">
+  <label>
+    Your Subscriptions
+  </label>
+  <ul class="list-group">
+    <li class="list-group-item"
+        ng-repeat="alarm in ctrl.subscriptions">
+      <span ng-bind="alarm.alarmName"></span>
+      <button class="btn btn-xs btn-danger pull-right"
+              ng-click="ctrl.unsubscribe(alarm)">
+        Unsubscribe
+      </button>
+    </li>
+  </ul>
+</div>

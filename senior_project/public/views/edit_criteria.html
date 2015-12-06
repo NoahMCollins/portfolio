@@ -1,0 +1,62 @@
+<div ng-include="'assets/views/partials/header.html'"></div>
+<div ng-include="'assets/views/partials/messages.html'"></div>
+
+<div>
+  <div class="btn-group">
+    <button class="btn btn-primary" ng-click="ctrl.goBack()">Back</button>
+  </div>
+  <br/>
+  <br/>
+  <form ng-submit="ctrl.saveCriteria()">
+    <div class="form-group">
+      <label for="instrumentName">Instrument</label>
+      <select class="form-control"
+              id="instrumentName"
+              ng-model="ctrl.criteria.instrumentName"
+              ng-change="ctrl.loadFields()"
+              ng-options="instrument.name as instrument.name for instrument in ctrl.instruments">
+        <option value="">Select Instrument</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="fieldName">Field</label>
+      <select class="form-control"
+              id="fieldName"
+              ng-model="ctrl.criteria.fieldName"
+              ng-options="field.column_name as field.column_name for field in ctrl.fields">
+        <option value="">Select Field</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="trigger">Trigger</label>
+      <select class="form-control"
+              id="trigger"
+              ng-model="ctrl.criteria.alarmTrigger">
+        <option value="">Select Trigger</option>
+        <option value="ABOVE">Above</option>
+        <option value="BELOW">Below</option>
+        <option value="NONE">No Signal</option>
+      </select>
+    </div>
+    <div class="form-group"
+         ng-show="ctrl.criteria.alarmTrigger != 'NONE'">
+      <label for="triggerValue">Trigger Value</label>
+      <input type="text"
+             class="form-control"
+             id="triggerValue"
+             placeholder="Trigger Value"
+             ng-model="ctrl.criteria.value">
+    </div>
+    <div class="form-group">
+      <label for="triggerValue">Trigger Time (sec)</label>
+      <input type="text"
+             class="form-control"
+             id="triggerTime"
+             placeholder="Trigger Time"
+             ng-model="ctrl.criteria.triggerTime">
+    </div>
+    <button type="submit"
+            class="btn btn-default"
+            ng-if="!ctrl.added">Save</button>
+  </form>
+</div>

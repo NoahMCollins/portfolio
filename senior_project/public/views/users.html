@@ -1,0 +1,14 @@
+<div ng-include="'assets/views/partials/header.html'"></div>
+<div ng-include="'assets/views/partials/messages.html'"></div>
+
+<h2 class="page-header">
+  Users
+</h2>
+<table class="table table-striped">
+  <tr>
+    <th>username</th>
+  </tr>
+  <tr ng-repeat="user in ctrl.list">
+    <td ng-bind="user.email"></td>
+  </tr>
+</table>

@@ -1,0 +1,35 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page 
+GET     /                           	controllers.Application.index()
+GET     /register                      	controllers.Application.register()
+POST    /register                       controllers.Application.postRegister()
+GET     /login                      	controllers.Application.login()
+POST    /login                      	controllers.Application.authenticate()
+GET     /logout                     	controllers.Application.logout()
+
+GET     /users/current              	controllers.User.getUser()
+GET     /users/list                 	controllers.User.getUsers()
+PUT     /users/:id                  	controllers.User.putUser(id: Integer)
+
+GET     /subscriptions              	controllers.Subscription.getSubscriptions()
+POST    /subscriptions              	controllers.Subscription.postSubscription()
+DELETE  /subscriptions/:id             	controllers.Subscription.removeSubscription(id: Integer)
+
+GET		/alarms							controllers.Alarm.getAlarms()
+POST	/alarms							controllers.Alarm.postAlarm()
+PUT     /alarms/:id                 	controllers.Alarm.putAlarm(id: Integer)
+DELETE  /alarms/:id                 	controllers.Alarm.deleteAlarm(id: Integer)
+
+GET		/alarms/:id/criteria        	controllers.Criteria.getCriteria(id: Integer)
+POST	/alarms/:alarmId/criteria		controllers.Criteria.postCriteria(alarmId: Integer)
+PUT		/alarms/:alarmId/criteria/:id	controllers.Criteria.putCriteria(alarmId: Integer, id: Integer)
+DELETE  /alarms/:alarmId/criteria/:id   controllers.Criteria.deleteCriteria(alarmId: Integer, id: Integer)
+
+GET		/instruments					controllers.Instrument.getInstruments()
+GET		/instruments/:name/fields		controllers.Instrument.getInstrumentFields(name: String)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               	controllers.Assets.at(path="/public", file)

@@ -1,0 +1,72 @@
+<div ng-include="'assets/views/partials/header.html'"></div>
+
+<div ng-include="'assets/views/partials/messages.html'"></div>
+<h2>
+  Alarms
+  <div class="btn-group btn-group-sm pull-right">
+    <button type="button"
+            class="btn btn-default"
+            ng-bind="ctrl.editing ? 'Done' : 'Edit'"
+            ng-click="ctrl.editing = !ctrl.editing"></button>
+    <button type="button"
+            class="btn btn-default"
+            data-toggle="modal"
+            data-target="#myModal"
+            ng-click="ctrl.openModal()">Add</button>
+  </div>
+</h2>
+
+<table class="table table-hover">
+  <tr>
+    <th ng-show="ctrl.editing"></th>
+    <th>Name</th>
+    <th colspan="4"></th>
+    <th ng-show="ctrl.editing"></th>
+  </tr>
+  <tr ng-repeat="alarm in ctrl.alarms"
+      ng-click="ctrl.editing ? null : ctrl.listCriteria(alarm.ID)"
+      ng-class="alarm.triggered == '0' ? 'bg-success' : 'bg-danger'">
+    <td ng-show="ctrl.editing">
+      <button type="button"
+              class="btn btn-danger btn-xs"
+              ng-click="ctrl.removeAlarm($index)">
+        <i  class="glyphicon glyphicon-remove"></i>
+      </button>
+    </td>
+    <td>
+      <i class="glyphicon glyphicon-ok"
+         ng-show="alarm.enabled == '1'"></i>
+      &nbsp;
+      <span ng-bind="alarm.alarmName"></span>
+    </td>
+    <td colspan="4"></td>
+    <td ng-show="ctrl.editing">
+      <div class="btn-group pull-right">
+
+        <button type="button"
+                class="btn btn-default btn-xs"
+                ng-click="ctrl.openModal(alarm)"
+                data-toggle="modal"
+                data-target="#myModal">
+          <i class="glyphicon glyphicon-pencil"></i> Change Name
+        </button>
+        <button type="button"
+                class="btn btn-default btn-xs"
+                ng-click="ctrl.enableAlarm(alarm)">
+          <i class="glyphicon"
+             ng-class="alarm.enabled == '1' ? 'glyphicon-remove' : 'glyphicon-ok'"></i>
+          <span ng-bind="alarm.enabled == '1' ? 'Disable' : 'Enable'"></span>
+        </button>
+        <button type="button"
+                class="btn btn-default btn-xs"
+                ng-click="ctrl.resetAlarm(alarm)"
+                ng-if="alarm.triggered == '1'">
+          <i  class="glyphicon glyphicon-refresh"></i>
+          Reset Alarm
+        </button>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<div ng-include="'assets/views/modals/add_alarm.html'"></div>

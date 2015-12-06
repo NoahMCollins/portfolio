@@ -1,0 +1,14 @@
+<div class="alert alert-danger"
+     ng-show="ctrl.notify.error">
+  <button type="button" class="close" ng-click="ctrl.notify.error = null">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <span ng-bind="ctrl.notify.error.msg"></span>
+</div>
+<div class="alert alert-success"
+     ng-show="ctrl.notify.success && !ctrl.notify.error">
+  <button type="button" class="close" ng-click="ctrl.notify.success = null">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <span ng-bind="ctrl.notify.success.msg"></span>
+</div>

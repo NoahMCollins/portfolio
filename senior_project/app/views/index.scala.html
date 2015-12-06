@@ -1,0 +1,38 @@
+@(message: String)
+
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href='@routes.Assets.at("styles/main.css")'/>
+</head>
+<body ng-app="usgs">
+
+<div class="container" ng-view=""></div>
+
+<script src="https://cdn.jsdelivr.net/jquery/2.1.1/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.js"></script>
+
+<script src='@routes.Assets.at("scripts/app.js")'></script>
+<script src='@routes.Assets.at("scripts/services/alarms.js")'></script>
+<script src='@routes.Assets.at("scripts/services/subscriptions.js")'></script>
+<script src='@routes.Assets.at("scripts/services/user.js")'></script>
+<script src='@routes.Assets.at("scripts/services/criteria.js")'></script>
+<script src='@routes.Assets.at("scripts/services/instruments.js")'></script>
+<script src='@routes.Assets.at("scripts/services/notify.js")'></script>
+<script src='@routes.Assets.at("scripts/controllers/main.js")'></script>
+<script src='@routes.Assets.at("scripts/controllers/main.js")'></script>
+<script src='@routes.Assets.at("scripts/controllers/users.js")'></script>
+<script src='@routes.Assets.at("scripts/controllers/subscriptions.js")'></script>
+<script src='@routes.Assets.at("scripts/controllers/alarms.js")'></script>
+<script src='@routes.Assets.at("scripts/controllers/criteria.js")'></script>
+<script src='@routes.Assets.at("scripts/controllers/editCriteria.js")'></script>
+
+</body>
+</html>
