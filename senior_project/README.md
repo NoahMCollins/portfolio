@@ -1,3 +1,6 @@
+###Note:
+The config has been removed from this repository in order to protect database passwords and API keys.  I have tried to limit the files in this collection to be only files which I had the primary role in developing.  The Project Setup no longer works because the framework files have been removed from this project for the sake of making this project less cluttered.
+
 # USGS Project
 
 ***
